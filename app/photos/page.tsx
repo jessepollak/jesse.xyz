@@ -125,7 +125,7 @@ export default function Photos() {
     <div className="w-full">
       <div className="space-y-8">
         {photos.map((photo) => (
-          <div key={photo.id} className="w-full">
+          <div key={photo.id} className="w-full max-w-2xl mx-auto">
             <Image
               src={photo.src || "/placeholder.svg"}
               alt={photo.alt}

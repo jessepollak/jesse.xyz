@@ -29,7 +29,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
       <body className={`${inter.className} antialiased`}>
-        <div className="flex flex-col md:flex-row max-w-5xl mx-auto px-4 py-6 md:py-12 min-h-screen">
+        <div className="flex flex-col md:flex-row w-full px-4 py-6 md:py-12 min-h-screen">
           <SidebarNav />
           <main className="flex-1 flex flex-col items-center justify-start">
             {children}

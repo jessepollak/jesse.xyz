@@ -2,6 +2,7 @@ import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import SidebarNav from "./SidebarNav"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -27,7 +28,14 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
       </head>
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className={`${inter.className} antialiased`}>
+        <div className="flex flex-col md:flex-row max-w-5xl mx-auto px-4 py-6 md:py-12 min-h-screen">
+          <SidebarNav />
+          <main className="flex-1 flex flex-col items-center justify-start">
+            {children}
+          </main>
+        </div>
+      </body>
     </html>
   )
 }

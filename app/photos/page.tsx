@@ -122,23 +122,7 @@ export default function Photos() {
   ]
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-12">
-      <div className="flex justify-between items-center mb-8">
-        <div>
-          <h1 className="text-2xl font-bold">Jesse Pollak</h1>
-        </div>
-        <nav>
-          <ul className="flex space-x-4">
-            <li>
-              <Link href="/" className="hover:underline">
-                About
-              </Link>
-            </li>
-            <li className="font-bold">Photos</li>
-          </ul>
-        </nav>
-      </div>
-
+    <div className="w-full">
       <div className="space-y-8">
         {photos.map((photo) => (
           <div key={photo.id} className="w-full">

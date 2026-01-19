@@ -2,6 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
+    branches:
+      - "**"
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
@@ -29,8 +32,10 @@ jobs:
           node-version: 20
           cache: pnpm
 
-      - name: Enable corepack
-        run: corepack enable
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -46,6 +51,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
